@@ -24,13 +24,13 @@ kubectl get svc -n todoapp
 Use busybox pod to call service DNS inside the cluster:
 
 ```bash
-kubectl exec -n todoapp busybox -- curl -s http://todoapp-service-clusterip/
+kubectl exec -n todoapp busybox -- curl -s http://todoapp-service/
 ```
 
 Optional: call API endpoint directly:
 
 ```bash
-kubectl exec -n todoapp busybox -- curl -s http://todoapp-service-clusterip/api/
+kubectl exec -n todoapp busybox -- curl -s http://todoapp-service/api/
 ```
 
 ## 3. Test app via service port-forward
@@ -38,7 +38,7 @@ kubectl exec -n todoapp busybox -- curl -s http://todoapp-service-clusterip/api/
 Forward local port to the ClusterIP service:
 
 ```bash
-kubectl port-forward -n todoapp service/todoapp-service-clusterip 8080:80
+kubectl port-forward -n todoapp service/todoapp-service 8080:80
 ```
 
 In another terminal:
